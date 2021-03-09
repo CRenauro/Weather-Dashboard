@@ -14,7 +14,7 @@ var sCity=[];
 var APIkey="c7266c368d6f532573a6d18eb1c26493";
 
 
-function displayWeather(event){ //display current an future weather
+function displayWeather(event){ //display current and future weather
   event.preventDefault();
   if(searchCity.val().trim()!=="") {
     city=searchCity.val().trim();
@@ -51,18 +51,23 @@ function currentWeather(city){ //get data from the server side
     UVindex(response.coord.lon, response.coord.lat); //get UV Index by coordinates
     forecast(response.id);
     if (response.cod==200){
-      sCity.push(city.toUpperCase());
-      localStorage.setItem("cityname", JSON.stringify(sCity));
-      addToList(city);
+      sCity=JSON.parse(localStorage.getItem("cityname"));
+      if (sCity==null){
+          sCity=[];
+          sCity.push(city.toUpperCase());
+          localStorage.setItem("cityname", JSON.stringify(sCity));
+          addToList(city);
+    
     }
-    else {
-      if(find(city)>0){
-        sCity.push(city.toUpperCase());
-        localStorage.setItem("cityname",JSON.stringify(sCity));
-        addToList(city);
+      else {
+        if(find(city)>0){
+          sCity.push(city.toUpperCase());
+          localStorage.setItem("cityname",JSON.stringify(sCity));
+          addToList(city);
+      
+        }
       }
     }
-
   });
 
 }
@@ -106,4 +111,14 @@ function forecast(cityid) {
   });
 }
 
+// add city to search history
+function addToList(c){
+  var listEl= $("<li>" +c.toUpperCase()+"</li>");
+  $(listEl).attr("class","list-group-item");
+  $(listEl).attr("data-value", c.toUpperCase());
+  $("list-group").append(listEl);
+}
+
+
 $("#search-button").on("click", displayWeather);
+
