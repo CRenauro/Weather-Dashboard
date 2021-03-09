@@ -23,11 +23,11 @@ function displayWeather(event){
 }
 
 
-function currentWeather(city){
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + APIkey;
+function currentWeather(city){ //get data from the server side
+  var queryurl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + APIkey;
   
   $.ajax({
-    url:queryURL,
+    url:queryurl,
     method:"GET"
   }).then(function (response) {
     console.log(response);
@@ -70,9 +70,9 @@ function currentWeather(city){
 
 // UVI Index response
 function UVIndex(ln,lt){  
-  var uvqURL = "https://api.openweathermap.org/data/2.5/uvi?appid="+ APIKey+"&lat="+lt+"&lon="+ln;
+  var uvqurl = "https://api.openweathermap.org/data/2.5/uvi?appid="+ APIKey+"&lat="+lt+"&lon="+ln;
   $.ajax({
-    url:uvqURL,
+    url:uvqurl,
     method:"GET"
   }).then(function(response){
         $(currentUvindex).html(response.value);
@@ -82,9 +82,9 @@ function UVIndex(ln,lt){
 // 5 day forecast display
 
 function forecast(cityid) {
-  var queryforecastURL = "https://api.openweathermap.org/data/2.5/forecast?id="+cityid+"&appid="+APIKey;
+  var queryforecasturl = "https://api.openweathermap.org/data/2.5/forecast?id="+cityid+"&appid="+APIKey;
   $.ajax({
-    url:queryforecastURL,
+    url:queryforecasturl,
     method:"GET"
   }).then(function(response){
 
