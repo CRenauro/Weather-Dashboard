@@ -43,10 +43,7 @@ function currentWeather(city){ //get data from the server side
     currentTemperature.html((tempF).toFixed(2)+"&#8457");  //farenheit temp and symbol
 
     currentHumidity.html(response.main.humidity+"%"); //humidity
-    // a = 2
-    // b = a
-    // b = 2
-    // a = b = c, therefore a must = c
+  
 
     var ws=response.wind.speed;
     var windsmph=(ws*2.237).toFixed(1);
@@ -124,6 +121,21 @@ function addToList(c){
   $(".list-group").append(listEl);
 }
 
+//render last cities
+
+function loadlastCity(){
+  $("ul").empty();
+  var sCity = JSON.parse(localStorage.getItem("cityname"));
+  if(sCity!==null){
+    sCity=JSON.parse(localStorage.getItem("cityname"));
+    for(i=0; i<sCity.length;i++){
+      addToList(sCity[i]);
+    }
+    city=sCity[i-1];
+    currentWeather(city);
+  }
+}
+
 
 $("#search-button").on("click", displayWeather);
-
+$(window).on("load",loadlastCity);
