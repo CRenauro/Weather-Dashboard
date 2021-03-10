@@ -5,9 +5,9 @@ var searchCity = $("#search-city");
 var searchButton = $("#search-button");
 var currentCity = $("#current-city");
 var currentTemperature = $("#temperature");
-var currentHumidity = $("humidity");
-var currentWSpeed = $("wind-speed");
-var currentUVindex = $("uv-index");
+var currentHumidity = $("#humidity");
+var currentWSpeed = $("#wind-speed");
+var currentUVindex = $("#uv-index");
 var sCity=[];
 
 
@@ -37,16 +37,21 @@ function currentWeather(city){ //get data from the server side
     $(".icon").html("<img src='" + iconurl  + "'>");
 
     var date=new Date(response.dt*1000).toLocaleDateString();
-    $(currentCity).html(response.name + "("+date+")" + "<img src="+iconurl+">"); //date format
+    currentCity.html(response.name + "("+date+")" + "<img src="+iconurl+">"); //date format
 
     var tempF = (response.main.temp - 273.15) * 1.80 +32;
-    $(currentTemperature).html((tempF).toFixed(2)+"&#8457");  //farenheit temp and symbol
+    currentTemperature.html((tempF).toFixed(2)+"&#8457");  //farenheit temp and symbol
 
-    $(currentHumidity).html(response.main.humidity+"%"); //humidity
+    currentHumidity.html(response.main.humidity+"%"); //humidity
+    // a = 2
+    // b = a
+    // b = 2
+    // a = b = c, therefore a must = c
 
     var ws=response.wind.speed;
     var windsmph=(ws*2.237).toFixed(1);
-    $(currentWSpeed).html(windsmph+"MPH"); //wind speed
+    console.log(windsmph);
+    currentWSpeed.html(windsmph+"MPH"); //wind speed
 
     UVindex(response.coord.lon, response.coord.lat); //get UV Index by coordinates
     forecast(response.id);
@@ -116,7 +121,7 @@ function addToList(c){
   var listEl= $("<li>" +c.toUpperCase()+"</li>");
   $(listEl).attr("class","list-group-item");
   $(listEl).attr("data-value", c.toUpperCase());
-  $("list-group").append(listEl);
+  $(".list-group").append(listEl);
 }
 
 
