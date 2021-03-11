@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Weather Finder</title>
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
     
-    <div class="jumbotron container-fluid text-center p-2" style="background-image: url(./assets/IMG_5454.jpeg); background-size: 100%;">
+    <div class="jumbotron container-fluid text-center" style="background-image: url(./assets/IMG_5454.jpeg); background-size: 100%;">
         <h1>Weather Dashboard</h1>
     </div>
     
@@ -33,14 +33,14 @@
                 </ul>
             </div>
 
-            <div class=col-md-8>
+            <div class="col-sm-8">
                 <div class="row ml-2">
                     <div class="col-sm-12" id="current-weather">
                         <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
-                        <p>Temperature:<span class="current" id="temperature"></span></p>
-                        <p>Humidity:<span class="current" id="humidity"></span></p> 
-                        <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
-                        <p>UV index:<span class="current" id="uv-index"></span></p> 
+                        <p>Temperature: <span class="current" id="temperature"></span></p>
+                        <p>Humidity: <span class="current" id="humidity"></span></p> 
+                        <p>Wind Speed: <span class="current" id="wind-speed"></span></p>
+                        <p>UV index: <span class="current bg-info px-2 text-white" id="uv-index"></span></p> 
                     </div>
                 </div>
 
@@ -88,7 +88,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-<!-- <script type='text/javascript' src='config.js'></script> -->
 <script src="./assets/js/script.js"></script>
 </body>
 </html>

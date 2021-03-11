@@ -14,6 +14,17 @@ var sCity=[];
 var APIkey="c7266c368d6f532573a6d18eb1c26493";
 
 
+
+function find(c){  // city search from local storage
+  for (var i=0; i<sCity.length; i++){
+    if (c.toUpperCase()===sCity[i]){
+      return -1;
+    }
+  }
+  return 1;
+}
+
+
 function displayWeather(event){ //display current and future weather
   event.preventDefault();
   if(searchCity.val().trim()!=="") {
