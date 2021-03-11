@@ -3,6 +3,7 @@
 var city="";
 var searchCity = $("#search-city");
 var searchButton = $("#search-button");
+var clearButton = $("#clear-history");
 var currentCity = $("#current-city");
 var currentTemperature = $("#temperature");
 var currentHumidity = $("#humidity");
@@ -147,6 +148,14 @@ function loadlastCity(){
   }
 }
 
+function clearHistory(event){
+  event.preventDefault();
+  sCity=[];
+  localStorage.removeItem("cityname");
+  document.location.reload();
+}
+
 
 $("#search-button").on("click", displayWeather);
 $(window).on("load",loadlastCity);
+$("#clear-history").on("click", clearHistory);
