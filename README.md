@@ -3,6 +3,8 @@
 https://github.com/CRenauro/Weather-Dashboard
 
 https://crenauro.github.io/Weather-Dashboard/
+![Uploading Weather-Dashboard.png…]()
+
 
 # Description
 
