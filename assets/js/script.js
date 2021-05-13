@@ -127,10 +127,19 @@ function forecast(cityid) {
 
 // add city to search history
 function addToList(c){
-  var listEl= $("<li>" +c.toUpperCase()+"</li>");
+  var listEl= $("<li>"+c.toUpperCase()+"</li>");
   $(listEl).attr("class","list-group-item");
-  $(listEl).attr("data-value", c.toUpperCase());
+  $(listEl).attr("data-value",c.toUpperCase());
   $(".list-group").append(listEl);
+}
+
+function invokePastSearch(event){
+  var liEl=event.target;
+  if (event.target.matches("li")){
+      city=liEl.textContent.trim();
+      currentWeather(city);
+  }
+
 }
 
 //render last cities
@@ -157,5 +166,6 @@ function clearHistory(event){
 
 
 $("#search-button").on("click", displayWeather);
+$(document).on("click",invokePastSearch);
 $(window).on("load",loadlastCity);
 $("#clear-history").on("click", clearHistory);

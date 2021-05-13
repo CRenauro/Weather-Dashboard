@@ -1,16 +1,31 @@
-# Weather-Dashboard
+<h1 align="center">Weather Dashboard 🌞</h1>
 
-https://github.com/CRenauro/Weather-Dashboard
+### 🏠 https://crenauro.github.io/Weather-Dashboard/
 
-https://crenauro.github.io/Weather-Dashboard/
-![Weather-Dashboard](https://user-images.githubusercontent.com/71401585/110851230-c2c34780-827e-11eb-914e-213e27595deb.png)
+<br/>
 
+# Install
 
+Open the above link in your browser.
+<br/>
+<br/>
 
+# Usage
+
+![01](./assets/01.png)
+<br/>
+<br/>
+When you type in and search for a city, you are presented with current and future conditions for that city. That city is then added to the
+search history. When you click on a city in the search history, you are again presented with current and future conditions for that city.
+
+<br/>
 
 # Description
 
-Input search for a city. Current and future conditions are shown and that city is added to the search history.
+This app uses OpenWeather API to retrieve weather data for cities. The HTML and CSS are dynamically updated. Local Storage is used to store persistant data.
 
-Temperature, Humidity, Wind Speed, and UV Index are shown as well as a 5 Day forecast.
+<br/>
 
+# Credits
+
+Huge thanks to my tutor and AskBCS. Background header image is my own.
